@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>草</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <div>
+        <h1>草</h1>
+        <p class="route">起 → co-ba中之島 → 仕事 → 帰宅 → 勉強</p>
+      </div>
+      <label class="sample-toggle">
+        <input type="checkbox" id="sample-toggle">
+        <span>例を見る</span>
+      </label>
+    </header>
+
+    <p id="sample-banner" class="sample-banner" hidden>例示データ（本番ではない）</p>
+
+    <section class="block">
+      <div class="block-head">
+        <h2>今年</h2>
+        <span class="meta" id="year-meta">2026</span>
+      </div>
+      <div id="year-grass" class="year-wrap"></div>
+    </section>
+
+    <section class="block">
+      <div class="block-head">
+        <h2>今週</h2>
+        <span class="meta" id="week-meta"></span>
+      </div>
+      <div id="week-strip" class="week-strip"></div>
+    </section>
+
+    <section class="block">
+      <div class="block-head">
+        <h2>今月</h2>
+        <span class="meta" id="month-meta"></span>
+      </div>
+      <div id="month-cal" class="month-cal"></div>
+    </section>
+
+    <footer class="legend" aria-label="濃さ">
+      <span>0</span>
+      <i class="swatch lv-0"></i>
+      <i class="swatch lv-1"></i>
+      <i class="swatch lv-2"></i>
+      <i class="swatch lv-3"></i>
+      <span>3</span>
+    </footer>
+  </div>
+
+  <aside id="panel" class="panel" hidden>
+    <div class="panel-head">
+      <h2 id="panel-date"></h2>
+      <button type="button" id="panel-close" aria-label="閉じる">×</button>
+    </div>
+    <div id="panel-body"></div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>

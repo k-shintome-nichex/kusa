@@ -1,0 +1,330 @@
+:root {
+  --bg: #0d1117;
+  --elev: #161b22;
+  --line: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --l0: #161b22;
+  --l1: #0e4429;
+  --l2: #006d32;
+  --l3: #26a641;
+  --ring: #e6edf3;
+  --cell: 11px;
+  --gap: 3px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.5 "Noto Sans CJK JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+        "Segoe UI", system-ui, sans-serif;
+}
+
+body { min-height: 100vh; }
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 28px 40px;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.route {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.sample-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+  font-size: 12px;
+}
+
+.sample-toggle input {
+  accent-color: var(--l3);
+}
+
+.sample-banner {
+  margin: 12px 0 0;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  background: var(--elev);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.block { margin-top: 28px; }
+
+.block-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.meta { color: var(--muted); font-size: 12px; }
+
+/* ---- year grass ---- */
+.year-wrap { overflow-x: auto; padding-bottom: 4px; }
+
+.months {
+  position: relative;
+  height: 16px;
+  margin-left: 22px;
+  margin-bottom: 2px;
+}
+
+.months span {
+  position: absolute;
+  top: 0;
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.year-body {
+  display: flex;
+  gap: 4px;
+}
+
+.wdays {
+  display: grid;
+  grid-template-rows: repeat(7, var(--cell));
+  gap: var(--gap);
+  width: 18px;
+  color: var(--muted);
+  font-size: 9px;
+  line-height: var(--cell);
+}
+
+.weeks {
+  display: flex;
+  gap: var(--gap);
+}
+
+.week {
+  display: grid;
+  grid-template-rows: repeat(7, var(--cell));
+  gap: var(--gap);
+}
+
+.cell {
+  width: var(--cell);
+  height: var(--cell);
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  background: var(--l0);
+  cursor: pointer;
+}
+
+.cell.lv-0 { background: var(--l0); }
+.cell.lv-1 { background: var(--l1); }
+.cell.lv-2 { background: var(--l2); }
+.cell.lv-3 { background: var(--l3); }
+
+.cell.is-out,
+.cell.is-disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+.cell.is-today { outline: 1px solid var(--ring); outline-offset: 1px; }
+.cell.is-selected { outline: 2px solid var(--l3); outline-offset: 1px; }
+
+button.cell {
+  font: inherit;
+  color: inherit;
+}
+
+/* ---- week strip ---- */
+.week-strip {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.week-day {
+  position: relative;
+  width: auto;
+  height: auto;
+  min-height: 92px;
+  padding: 8px 8px 10px;
+  border-radius: 4px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.week-day .wd {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.week-day .num {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.week-day .checks {
+  display: none;
+  margin-top: 6px;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.week-day:hover .checks,
+.week-day:focus-visible .checks,
+.week-day.is-selected .checks {
+  display: flex;
+}
+
+/* Sat / Sun are first-class — do not mute */
+
+/* ---- month ---- */
+.month-head,
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.month-head span {
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.month-grid { margin-top: 6px; }
+
+.month-day {
+  width: auto;
+  height: 36px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.month-day.is-other {
+  opacity: 0.3;
+}
+
+/* ---- legend ---- */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.swatch {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+}
+
+.swatch.lv-0 { background: var(--l0); }
+.swatch.lv-1 { background: var(--l1); }
+.swatch.lv-2 { background: var(--l2); }
+.swatch.lv-3 { background: var(--l3); }
+
+/* ---- panel ---- */
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100vh;
+  background: var(--elev);
+  border-left: 1px solid var(--line);
+  padding: 20px 20px 28px;
+  overflow: auto;
+  z-index: 10;
+}
+
+.panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.panel-head h2 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#panel-close {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+
+#panel-close:hover { color: var(--text); }
+
+.panel .empty {
+  margin: 20px 0 0;
+  color: var(--muted);
+}
+
+.panel dl {
+  margin: 18px 0 0;
+}
+
+.panel dl > div {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 8px;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+
+.panel dt { color: var(--muted); }
+.panel dd { margin: 0; word-break: break-word; }
+.panel .ok { color: var(--l3); }
+.panel .ng { color: var(--muted); }
+
+@media (max-width: 720px) {
+  .page { padding: 20px 16px 32px; }
+  .week-day { min-height: 80px; }
+  .panel { width: min(100%, 300px); }
+}
