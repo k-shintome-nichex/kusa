@@ -1,5 +1,12 @@
 {
   "timezone": "Asia/Tokyo",
   "started": "2026-09-01",
-  "days": []
+  "days": [
+    {
+      "date": "2026-08-22",
+      "coba": false,
+      "work": "Grok Bot本格始動 / クラウドエージェントで実装",
+      "study": ""
+    }
+  ]
 }
