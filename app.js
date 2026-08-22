@@ -296,6 +296,9 @@ function renderWeek() {
         "<span>勉強 " +
         markText(rec, "study") +
         "</span>" +
+        "<span>運動 " +
+        markText(rec, "move") +
+        "</span>" +
         "</span>" +
         "</button>"
     );
@@ -365,6 +368,7 @@ function openPanel(ymd) {
   } else {
     const work = nonempty(rec.work) ? escapeHtml(rec.work) : "—";
     const study = nonempty(rec.study) ? escapeHtml(rec.study) : "—";
+    const move = nonempty(rec.move) ? escapeHtml(rec.move) : "—";
     body.innerHTML =
       "<dl>" +
       "<div><dt>co-ba</dt><dd class=\"" +
@@ -377,6 +381,9 @@ function openPanel(ymd) {
       "</dd></div>" +
       "<div><dt>勉強</dt><dd>" +
       study +
+      "</dd></div>" +
+      "<div><dt>運動</dt><dd>" +
+      move +
       "</dd></div>" +
       "</dl>";
   }
