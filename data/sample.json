@@ -1,0 +1,672 @@
+{
+  "timezone": "Asia/Tokyo",
+  "started": "2026-09-01",
+  "days": [
+    {
+      "date": "2026-08-17",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": "例：数学"
+    },
+    {
+      "date": "2026-08-18",
+      "coba": true,
+      "work": "例：資料",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-08-19",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-08-20",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-08-21",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-08-22",
+      "coba": true,
+      "work": "例：週末作業",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-08-23",
+      "coba": true,
+      "work": "",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-08-24",
+      "coba": true,
+      "work": "例",
+      "study": ""
+    },
+    {
+      "date": "2026-08-26",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-08-27",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-08-28",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": "例：論文"
+    },
+    {
+      "date": "2026-08-29",
+      "coba": false,
+      "work": "例：週末作業",
+      "study": "例"
+    },
+    {
+      "date": "2026-09-01",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-09-02",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": "例：論文"
+    },
+    {
+      "date": "2026-09-03",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": "例：論文"
+    },
+    {
+      "date": "2026-09-04",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": "例：論文"
+    },
+    {
+      "date": "2026-09-05",
+      "coba": true,
+      "work": "例：週末作業",
+      "study": "例"
+    },
+    {
+      "date": "2026-09-06",
+      "coba": true,
+      "work": "",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-09-09",
+      "coba": false,
+      "work": "例：午前のみ",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-09-10",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-09-11",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-09-12",
+      "coba": false,
+      "work": "",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-09-13",
+      "coba": true,
+      "work": "例",
+      "study": "例：論文"
+    },
+    {
+      "date": "2026-09-15",
+      "coba": true,
+      "work": "例：実装",
+      "study": "例"
+    },
+    {
+      "date": "2026-09-16",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-09-17",
+      "coba": false,
+      "work": "例：実装",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-09-18",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-09-19",
+      "coba": false,
+      "work": "例：週末作業",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-09-20",
+      "coba": false,
+      "work": "",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-09-21",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-09-22",
+      "coba": false,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-09-23",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": "例"
+    },
+    {
+      "date": "2026-09-24",
+      "coba": true,
+      "work": "例",
+      "study": ""
+    },
+    {
+      "date": "2026-09-25",
+      "coba": true,
+      "work": "例：資料",
+      "study": "例"
+    },
+    {
+      "date": "2026-09-26",
+      "coba": true,
+      "work": "",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-09-27",
+      "coba": false,
+      "work": "例：週末作業",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-09-28",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": "例"
+    },
+    {
+      "date": "2026-09-29",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-10-01",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-10-02",
+      "coba": false,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-10-03",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-10-04",
+      "coba": true,
+      "work": "",
+      "study": "例"
+    },
+    {
+      "date": "2026-10-12",
+      "coba": false,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-10-14",
+      "coba": true,
+      "work": "",
+      "study": "例：数学"
+    },
+    {
+      "date": "2026-10-15",
+      "coba": false,
+      "work": "例：実装",
+      "study": ""
+    },
+    {
+      "date": "2026-10-16",
+      "coba": true,
+      "work": "例：実装",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-10-17",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-10-18",
+      "coba": false,
+      "work": "例：週末作業",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-10-19",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-10-20",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-10-21",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-10-22",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-10-23",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-10-24",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-10-25",
+      "coba": true,
+      "work": "例",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-10-26",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-10-29",
+      "coba": true,
+      "work": "例：実装",
+      "study": ""
+    },
+    {
+      "date": "2026-10-30",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-10-31",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-11-01",
+      "coba": true,
+      "work": "",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-11-02",
+      "coba": true,
+      "work": "例：資料",
+      "study": "例"
+    },
+    {
+      "date": "2026-11-03",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-11-04",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-11-05",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-11-06",
+      "coba": false,
+      "work": "例",
+      "study": "例"
+    },
+    {
+      "date": "2026-11-07",
+      "coba": true,
+      "work": "",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-11-08",
+      "coba": false,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-11-09",
+      "coba": false,
+      "work": "",
+      "study": "例：数学"
+    },
+    {
+      "date": "2026-11-10",
+      "coba": true,
+      "work": "例：実装",
+      "study": ""
+    },
+    {
+      "date": "2026-11-11",
+      "coba": false,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-11-12",
+      "coba": true,
+      "work": "例",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-11-13",
+      "coba": true,
+      "work": "",
+      "study": "例"
+    },
+    {
+      "date": "2026-11-14",
+      "coba": true,
+      "work": "例：週末作業",
+      "study": ""
+    },
+    {
+      "date": "2026-11-15",
+      "coba": false,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-11-16",
+      "coba": false,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-11-17",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-11-18",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": "例"
+    },
+    {
+      "date": "2026-11-19",
+      "coba": true,
+      "work": "例",
+      "study": ""
+    },
+    {
+      "date": "2026-11-20",
+      "coba": true,
+      "work": "",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-11-21",
+      "coba": true,
+      "work": "",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-11-24",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-11-25",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-11-26",
+      "coba": false,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-11-27",
+      "coba": true,
+      "work": "",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-11-28",
+      "coba": false,
+      "work": "例",
+      "study": "例：読書"
+    },
+    {
+      "date": "2026-11-29",
+      "coba": true,
+      "work": "",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-11-30",
+      "coba": false,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-12-01",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-12-03",
+      "coba": true,
+      "work": "例：資料",
+      "study": "例：論文"
+    },
+    {
+      "date": "2026-12-04",
+      "coba": true,
+      "work": "例：実装",
+      "study": ""
+    },
+    {
+      "date": "2026-12-05",
+      "coba": false,
+      "work": "",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-12-06",
+      "coba": true,
+      "work": "例：週末作業",
+      "study": "例"
+    },
+    {
+      "date": "2026-12-07",
+      "coba": true,
+      "work": "例：実装",
+      "study": ""
+    },
+    {
+      "date": "2026-12-08",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-12-09",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-12-10",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-12-11",
+      "coba": true,
+      "work": "",
+      "study": ""
+    },
+    {
+      "date": "2026-12-12",
+      "coba": false,
+      "work": "",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-12-14",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-12-15",
+      "coba": true,
+      "work": "例：実装",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-12-17",
+      "coba": true,
+      "work": "例：レビュー",
+      "study": ""
+    },
+    {
+      "date": "2026-12-18",
+      "coba": true,
+      "work": "",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-12-19",
+      "coba": true,
+      "work": "例：週末作業",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-12-20",
+      "coba": false,
+      "work": "",
+      "study": "例：週末"
+    },
+    {
+      "date": "2026-12-21",
+      "coba": true,
+      "work": "",
+      "study": "例：論文"
+    },
+    {
+      "date": "2026-12-23",
+      "coba": false,
+      "work": "例：実装",
+      "study": "例：数学"
+    },
+    {
+      "date": "2026-12-25",
+      "coba": true,
+      "work": "例：午前のみ",
+      "study": ""
+    },
+    {
+      "date": "2026-12-26",
+      "coba": false,
+      "work": "",
+      "study": "例：英語"
+    },
+    {
+      "date": "2026-12-29",
+      "coba": true,
+      "work": "例",
+      "study": ""
+    },
+    {
+      "date": "2026-12-30",
+      "coba": true,
+      "work": "例：資料",
+      "study": ""
+    },
+    {
+      "date": "2026-12-31",
+      "coba": true,
+      "work": "",
+      "study": ""
+    }
+  ]
+}
