@@ -1,27 +1,24 @@
 {
   "timezone": "Asia/Tokyo",
-  "started": "2026-09-01",
+  "started": "2026-08-22",
   "days": [
     {
       "date": "2026-08-22",
-      "coba": false,
+      "minutes": 0,
       "work": "Grok Bot本格始動 / クラウドエージェントで実装",
-      "study": "",
-      "move": "靭公園一周 / ジム（懸垂）"
+      "coba": false
     },
     {
       "date": "2026-08-24",
-      "coba": true,
+      "minutes": 0,
       "work": "NICHEX MTG（共栄合金訪問） / ERP改修 / HP・X方針 / 入会申込",
-      "study": "",
-      "move": ""
+      "coba": true
     },
     {
       "date": "2026-08-25",
-      "coba": false,
+      "minutes": 0,
       "work": "NICHEX実装 / X・HP",
-      "study": "",
-      "move": ""
+      "coba": false
     }
   ]
 }

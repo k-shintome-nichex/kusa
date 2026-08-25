@@ -7,7 +7,7 @@ const MONTHS = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", 
 
 const EMPTY_DATA = {
   timezone: TZ,
-  started: "2026-09-01",
+  started: "2026-08-22",
   days: []
 };
 
@@ -57,13 +57,29 @@ function nonempty(s) {
   return !!(s && String(s).trim());
 }
 
-function intensity(rec) {
+function minutesOf(rec) {
   if (!rec) return 0;
-  let n = 0;
-  if (rec.coba === true) n++;
-  if (nonempty(rec.work)) n++;
-  if (nonempty(rec.study)) n++;
-  return n;
+  const m = Number(rec.minutes);
+  return Number.isFinite(m) && m > 0 ? m : 0;
+}
+
+function intensity(rec) {
+  const m = minutesOf(rec);
+  if (m >= 180) return 6;
+  if (m >= 120) return 5;
+  if (m >= 60) return 4;
+  if (m >= 30) return 3;
+  if (m >= 15) return 2;
+  if (m >= 1) return 1;
+  return 0;
+}
+
+function formatMinutes(m) {
+  if (!m) return "—";
+  if (m < 60) return m + "分";
+  const h = Math.floor(m / 60);
+  const r = m % 60;
+  return r ? h + "時間" + r + "分" : h + "時間";
 }
 
 function formatJaDate(ymd) {
@@ -84,16 +100,6 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
-function markCoba(rec) {
-  if (!rec) return "–";
-  return rec.coba === true ? "○" : "×";
-}
-
-function markText(rec, field) {
-  if (!rec) return "–";
-  return nonempty(rec[field]) ? "○" : "×";
-}
-
 async function loadJson(url, fallback) {
   try {
     const res = await fetch(url, { cache: "no-store" });
@@ -110,53 +116,25 @@ function generateSample() {
     s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
     return s / 4294967296;
   }
-  const workW = ["例", "例：実装", "例：レビュー", "例：午前のみ", "例：資料"];
-  const studyW = ["例", "例：英語", "例：数学", "例：読書", "例：論文"];
-  const workE = ["例", "例：週末作業"];
-  const studyE = ["例", "例：週末", "例：英語", "例：読書"];
-  const forced = {
-    "2026-08-22": { coba: true, work: "例：週末作業", study: "例：読書" },
-    "2026-08-23": { coba: true, work: "", study: "例：週末" },
-    "2026-09-05": { coba: true, work: "例：週末作業", study: "例" },
-    "2026-09-06": { coba: true, work: "", study: "例：英語" },
-    "2026-09-12": { coba: false, work: "", study: "例：読書" },
-    "2026-09-13": { coba: true, work: "例", study: "例：論文" }
-  };
+  const notes = ["例：実装", "例：HP", "例：X", "例：営業自動化", "例：納品"];
+  const buckets = [1, 15, 30, 60, 120, 180];
   const days = [];
   let d = "2026-08-17";
   while (d <= "2026-12-31") {
-    if (d >= "2026-10-05" && d <= "2026-10-11") {
+    if (rnd() < 0.18) {
       d = addDays(d, 1);
       continue;
     }
-    if (forced[d]) {
-      days.push(Object.assign({ date: d }, forced[d]));
-      d = addDays(d, 1);
-      continue;
-    }
-    if (rnd() < 0.12) {
-      d = addDays(d, 1);
-      continue;
-    }
-    const wd = mon0(d);
-    let coba, work, study;
-    if (wd < 5) {
-      coba = rnd() < 0.78;
-      work = rnd() < 0.82 ? workW[Math.floor(rnd() * workW.length)] : "";
-      study = rnd() < 0.48 ? studyW[Math.floor(rnd() * studyW.length)] : "";
-    } else {
-      coba = rnd() < 0.55;
-      work = rnd() < 0.35 ? workE[Math.floor(rnd() * workE.length)] : "";
-      study = rnd() < 0.62 ? studyE[Math.floor(rnd() * studyE.length)] : "";
-    }
-    if (!coba && !work && !study && rnd() < 0.7) {
-      d = addDays(d, 1);
-      continue;
-    }
-    days.push({ date: d, coba: coba, work: work, study: study });
+    const minutes = buckets[Math.floor(rnd() * buckets.length)];
+    days.push({
+      date: d,
+      minutes: minutes,
+      work: notes[Math.floor(rnd() * notes.length)],
+      coba: mon0(d) < 5
+    });
     d = addDays(d, 1);
   }
-  return { timezone: TZ, started: "2026-09-01", days: days };
+  return { timezone: TZ, started: "2026-08-22", days: days };
 }
 
 function indexData() {
@@ -174,7 +152,7 @@ function cellClass(ymd, extra) {
   const rec = recOf(ymd);
   const lv = rec ? intensity(rec) : 0;
   const p = parts(ymd);
-  const started = DATA.started || "2026-09-01";
+  const started = DATA.started || "2026-08-22";
   const isOut = p.y !== YEAR;
   const isDisabled = isOut || (ymd < started && !rec);
   const cls = ["cell", "lv-" + lv];
@@ -223,10 +201,9 @@ function renderYear() {
     .map(function (week) {
       const cells = week
         .map(function (day) {
-          const p = parts(day);
           const rec = recOf(day);
           const lv = rec ? intensity(rec) : 0;
-          const title = day + " · " + lv;
+          const title = day + " · " + formatMinutes(minutesOf(rec));
           return (
             '<button type="button" class="' +
             cellClass(day) +
@@ -237,7 +214,7 @@ function renderYear() {
             '" aria-label="' +
             formatJaDate(day) +
             '"' +
-            (p.y !== YEAR ? ' tabindex="-1"' : "") +
+            (parts(day).y !== YEAR ? ' tabindex="-1"' : "") +
             "></button>"
           );
         })
@@ -287,17 +264,8 @@ function renderWeek() {
         parts(d).d +
         "</span>" +
         '<span class="checks">' +
-        "<span>co-ba " +
-        markCoba(rec) +
-        "</span>" +
-        "<span>仕事 " +
-        markText(rec, "work") +
-        "</span>" +
-        "<span>勉強 " +
-        markText(rec, "study") +
-        "</span>" +
-        "<span>運動 " +
-        markText(rec, "move") +
+        "<span>" +
+        formatMinutes(minutesOf(rec)) +
         "</span>" +
         "</span>" +
         "</button>"
@@ -367,23 +335,13 @@ function openPanel(ymd) {
     body.innerHTML = '<p class="empty">記録なし</p>';
   } else {
     const work = nonempty(rec.work) ? escapeHtml(rec.work) : "—";
-    const study = nonempty(rec.study) ? escapeHtml(rec.study) : "—";
-    const move = nonempty(rec.move) ? escapeHtml(rec.move) : "—";
     body.innerHTML =
       "<dl>" +
-      "<div><dt>co-ba</dt><dd class=\"" +
-      (rec.coba === true ? "ok" : "ng") +
-      '">' +
-      (rec.coba === true ? "○" : "×") +
+      "<div><dt>時間</dt><dd>" +
+      escapeHtml(formatMinutes(minutesOf(rec))) +
       "</dd></div>" +
-      "<div><dt>仕事</dt><dd>" +
+      "<div><dt>内容</dt><dd>" +
       work +
-      "</dd></div>" +
-      "<div><dt>勉強</dt><dd>" +
-      study +
-      "</dd></div>" +
-      "<div><dt>運動</dt><dd>" +
-      move +
       "</dd></div>" +
       "</dl>";
   }

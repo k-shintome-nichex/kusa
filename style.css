@@ -8,6 +8,9 @@
   --l1: #0e4429;
   --l2: #006d32;
   --l3: #26a641;
+  --l4: #3dd65a;
+  --l5: #6be87a;
+  --l6: #9be9a8;
   --ring: #e6edf3;
   --cell: 11px;
   --gap: 3px;
@@ -62,7 +65,7 @@ h1 {
 }
 
 .sample-toggle input {
-  accent-color: var(--l3);
+  accent-color: var(--l4);
 }
 
 .sample-banner {
@@ -91,7 +94,6 @@ h2 {
 
 .meta { color: var(--muted); font-size: 12px; }
 
-/* ---- year grass ---- */
 .year-wrap { overflow-x: auto; padding-bottom: 4px; }
 
 .months {
@@ -149,6 +151,9 @@ h2 {
 .cell.lv-1 { background: var(--l1); }
 .cell.lv-2 { background: var(--l2); }
 .cell.lv-3 { background: var(--l3); }
+.cell.lv-4 { background: var(--l4); }
+.cell.lv-5 { background: var(--l5); }
+.cell.lv-6 { background: var(--l6); }
 
 .cell.is-out,
 .cell.is-disabled {
@@ -157,14 +162,13 @@ h2 {
 }
 
 .cell.is-today { outline: 1px solid var(--ring); outline-offset: 1px; }
-.cell.is-selected { outline: 2px solid var(--l3); outline-offset: 1px; }
+.cell.is-selected { outline: 2px solid var(--l4); outline-offset: 1px; }
 
 button.cell {
   font: inherit;
   color: inherit;
 }
 
-/* ---- week strip ---- */
 .week-strip {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -211,9 +215,6 @@ button.cell {
   display: flex;
 }
 
-/* Sat / Sun are first-class — do not mute */
-
-/* ---- month ---- */
 .month-head,
 .month-grid {
   display: grid;
@@ -240,7 +241,6 @@ button.cell {
   opacity: 0.3;
 }
 
-/* ---- legend ---- */
 .legend {
   display: flex;
   align-items: center;
@@ -262,8 +262,10 @@ button.cell {
 .swatch.lv-1 { background: var(--l1); }
 .swatch.lv-2 { background: var(--l2); }
 .swatch.lv-3 { background: var(--l3); }
+.swatch.lv-4 { background: var(--l4); }
+.swatch.lv-5 { background: var(--l5); }
+.swatch.lv-6 { background: var(--l6); }
 
-/* ---- panel ---- */
 .panel {
   position: fixed;
   top: 0;
@@ -320,7 +322,7 @@ button.cell {
 
 .panel dt { color: var(--muted); }
 .panel dd { margin: 0; word-break: break-word; }
-.panel .ok { color: var(--l3); }
+.panel .ok { color: var(--l4); }
 .panel .ng { color: var(--muted); }
 
 @media (max-width: 720px) {
