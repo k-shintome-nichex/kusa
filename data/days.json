@@ -19,6 +19,12 @@
       "minutes": 90,
       "work": "実装45 / X15 / HP30",
       "coba": false
+    },
+    {
+      "date": "2026-08-27",
+      "minutes": 90,
+      "work": "開発",
+      "coba": false
     }
   ]
 }
