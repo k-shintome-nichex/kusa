@@ -31,6 +31,18 @@
       "minutes": 90,
       "work": "開発",
       "coba": false
+    },
+    {
+      "date": "2026-08-28",
+      "minutes": 120,
+      "work": "朝1h / 昼 / 夜",
+      "coba": true
+    },
+    {
+      "date": "2026-08-29",
+      "minutes": 0,
+      "work": "6:30入り",
+      "coba": true
     }
   ]
 }
