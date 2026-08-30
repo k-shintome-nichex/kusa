@@ -48,29 +48,6 @@ h1 {
   letter-spacing: 0.04em;
 }
 
-.sample-toggle {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  cursor: pointer;
-  user-select: none;
-  font-size: 12px;
-}
-
-.sample-toggle input {
-  accent-color: var(--l4);
-}
-
-.sample-banner {
-  margin: 12px 0 0;
-  padding: 6px 10px;
-  border: 1px solid var(--line);
-  background: var(--elev);
-  color: var(--muted);
-  font-size: 12px;
-}
-
 .block { margin-top: 28px; }
 
 .block-head {
@@ -356,25 +333,6 @@ button.cell {
   h1 {
     font-size: 18px;
     line-height: 1.2;
-  }
-
-  .sample-toggle {
-    gap: 5px;
-    font-size: 11px;
-    line-height: 1.2;
-  }
-
-  .sample-toggle input {
-    width: 13px;
-    height: 13px;
-    margin: 0;
-  }
-
-  .sample-banner {
-    margin-top: 6px;
-    padding: 3px 6px;
-    font-size: 10px;
-    line-height: 1.3;
   }
 
   .block {
