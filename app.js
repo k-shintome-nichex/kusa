@@ -14,7 +14,6 @@ const EMPTY_DATA = {
 let DATA = EMPTY_DATA;
 let byDate = new Map();
 let selected = null;
-let usingSample = false;
 
 function tokyoYmd(d) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -108,33 +107,6 @@ async function loadJson(url, fallback) {
   } catch (err) {
     return fallback;
   }
-}
-
-function generateSample() {
-  let s = 20260901;
-  function rnd() {
-    s = (Math.imul(s, 1664525) + 1013904223) >>> 0;
-    return s / 4294967296;
-  }
-  const notes = ["例：実装", "例：HP", "例：X", "例：営業自動化", "例：納品"];
-  const buckets = [1, 15, 30, 60, 120, 180];
-  const days = [];
-  let d = "2026-08-17";
-  while (d <= "2026-12-31") {
-    if (rnd() < 0.18) {
-      d = addDays(d, 1);
-      continue;
-    }
-    const minutes = buckets[Math.floor(rnd() * buckets.length)];
-    days.push({
-      date: d,
-      minutes: minutes,
-      work: notes[Math.floor(rnd() * notes.length)],
-      coba: mon0(d) < 5
-    });
-    d = addDays(d, 1);
-  }
-  return { timezone: TZ, started: "2026-08-22", days: days };
 }
 
 function indexData() {
@@ -363,32 +335,18 @@ function closePanel() {
 }
 
 async function applySource() {
-  if (usingSample) {
-    DATA = await loadJson("data/sample.json", generateSample());
-  } else {
-    DATA = await loadJson("data/days.json", EMPTY_DATA);
-  }
-  document.getElementById("sample-banner").hidden = !usingSample;
-  document.body.classList.toggle("is-sample", usingSample);
+  DATA = await loadJson("data/days.json", EMPTY_DATA);
   indexData();
   renderAll();
   if (selected) openPanel(selected);
 }
 
 async function boot() {
-  const toggle = document.getElementById("sample-toggle");
   const params = new URLSearchParams(location.search);
-  usingSample = params.get("sample") === "1";
-  toggle.checked = usingSample;
   await applySource();
 
   const day = params.get("day");
   if (day && /^\d{4}-\d{2}-\d{2}$/.test(day)) openPanel(day);
-
-  toggle.addEventListener("change", async function () {
-    usingSample = toggle.checked;
-    await applySource();
-  });
 
   document.addEventListener("click", function (e) {
     const cell = e.target.closest("[data-date]");
@@ -396,7 +354,7 @@ async function boot() {
       openPanel(cell.getAttribute("data-date"));
       return;
     }
-    if (!e.target.closest("#panel") && !e.target.closest(".sample-toggle")) {
+    if (!e.target.closest("#panel")) {
       closePanel();
     }
   });
