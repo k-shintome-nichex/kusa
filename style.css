@@ -172,18 +172,20 @@ button.cell {
 }
 
 .week-day .checks {
-  display: none;
+  display: flex;
+  min-height: 3em;
   margin-top: 6px;
   flex-direction: column;
   gap: 1px;
   font-size: 11px;
   color: var(--text);
+  visibility: hidden;
 }
 
 .week-day:hover .checks,
 .week-day:focus-visible .checks,
 .week-day.is-selected .checks {
-  display: flex;
+  visibility: visible;
 }
 
 .month-head,
@@ -408,7 +410,7 @@ button.cell {
   }
 
   .week-day {
-    min-height: 44px;
+    min-height: 62px;
     padding: 4px;
     gap: 1px;
   }
@@ -420,6 +422,14 @@ button.cell {
   .week-day .num {
     font-size: 15px;
     line-height: 1.1;
+  }
+
+  .week-day .checks {
+    min-height: 2.2em;
+    margin-top: 2px;
+    font-size: 9px;
+    line-height: 1.1;
+    word-break: break-all;
   }
 
   .month-head,
