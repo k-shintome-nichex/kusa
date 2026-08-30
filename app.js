@@ -215,8 +215,8 @@ function renderYear() {
 }
 
 function renderWeek() {
-  const today = todayYmd();
-  const mon = mondayOf(today);
+  const focus = selected || todayYmd();
+  const mon = mondayOf(focus);
   document.getElementById("week-meta").textContent =
     formatShort(mon) + " – " + formatShort(addDays(mon, 6));
   const root = document.getElementById("week-strip");
@@ -250,8 +250,8 @@ function renderWeek() {
 }
 
 function renderMonth() {
-  const today = todayYmd();
-  const p = parts(today);
+  const focus = selected || todayYmd();
+  const p = parts(focus);
   document.getElementById("month-meta").textContent = p.y + "年" + p.m + "月";
   const first =
     p.y + "-" + String(p.m).padStart(2, "0") + "-01";
@@ -303,32 +303,47 @@ function renderAll() {
 
 function openPanel(ymd) {
   selected = ymd;
+  renderWeek();
+  renderMonth();
+
   const rec = recOf(ymd);
   document.getElementById("panel-date").textContent = formatJaDate(ymd);
   const body = document.getElementById("panel-body");
-  if (!rec) {
-    body.innerHTML = '<p class="empty">記録なし</p>';
-  } else {
-    const work = nonempty(rec.work) ? escapeHtml(rec.work) : "—";
-    body.innerHTML =
-      "<dl>" +
-      "<div><dt>時間</dt><dd>" +
-      escapeHtml(formatMinutes(minutesOf(rec))) +
-      "</dd></div>" +
-      "<div><dt>内容</dt><dd>" +
-      work +
-      "</dd></div>" +
-      "</dl>";
-  }
+  const work = rec
+    ? nonempty(rec.work)
+      ? escapeHtml(rec.work)
+      : "—"
+    : "記録なし";
+  body.innerHTML =
+    "<dl>" +
+    "<div><dt>時間</dt><dd>" +
+    escapeHtml(formatMinutes(minutesOf(rec))) +
+    "</dd></div>" +
+    "<div><dt>内容</dt><dd>" +
+    work +
+    "</dd></div>" +
+    "</dl>";
+
+  document.getElementById("panel-prev").disabled = ymd <= YEAR + "-01-01";
+  document.getElementById("panel-next").disabled = ymd >= YEAR + "-12-31";
   document.getElementById("panel").hidden = false;
   document.querySelectorAll("[data-date]").forEach(function (el) {
     el.classList.toggle("is-selected", el.getAttribute("data-date") === ymd);
   });
 }
 
+function moveSelection(days) {
+  if (!selected) return;
+  const next = addDays(selected, days);
+  if (next < YEAR + "-01-01" || next > YEAR + "-12-31") return;
+  openPanel(next);
+}
+
 function closePanel() {
   selected = null;
   document.getElementById("panel").hidden = true;
+  renderWeek();
+  renderMonth();
   document.querySelectorAll(".is-selected").forEach(function (el) {
     el.classList.remove("is-selected");
   });
@@ -364,8 +379,52 @@ async function boot() {
     closePanel();
   });
 
+  document.getElementById("panel-prev").addEventListener("click", function (e) {
+    e.stopPropagation();
+    moveSelection(-1);
+  });
+
+  document.getElementById("panel-next").addEventListener("click", function (e) {
+    e.stopPropagation();
+    moveSelection(1);
+  });
+
+  const panel = document.getElementById("panel");
+  let touchStart = null;
+  panel.addEventListener(
+    "touchstart",
+    function (e) {
+      if (e.touches.length !== 1) return;
+      touchStart = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
+      };
+    },
+    { passive: true }
+  );
+  panel.addEventListener(
+    "touchend",
+    function (e) {
+      if (!touchStart || e.changedTouches.length !== 1) return;
+      const dx = e.changedTouches[0].clientX - touchStart.x;
+      const dy = e.changedTouches[0].clientY - touchStart.y;
+      touchStart = null;
+      if (Math.abs(dx) < 40 || Math.abs(dx) <= Math.abs(dy) * 1.2) return;
+      moveSelection(dx < 0 ? 1 : -1);
+    },
+    { passive: true }
+  );
+
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closePanel();
+    if (e.key === "Escape") {
+      closePanel();
+    } else if (e.key === "ArrowLeft" && selected) {
+      e.preventDefault();
+      moveSelection(-1);
+    } else if (e.key === "ArrowRight" && selected) {
+      e.preventDefault();
+      moveSelection(1);
+    }
   });
 }
 
