@@ -180,7 +180,10 @@ function renderYear() {
     weeks.push(week);
   }
 
-  const step = 11 + 3;
+  const styles = getComputedStyle(document.documentElement);
+  const cell = parseFloat(styles.getPropertyValue("--cell")) || 11;
+  const gap = parseFloat(styles.getPropertyValue("--gap")) || 3;
+  const step = cell + gap;
   const monthHtml = [];
   weeks.forEach(function (week, i) {
     week.forEach(function (day) {
