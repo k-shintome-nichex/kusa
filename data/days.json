@@ -46,8 +46,8 @@
     },
     {
       "date": "2026-08-30",
-      "minutes": 0,
-      "work": "8時入り",
+      "minutes": 120,
+      "work": "8時入り / 2h",
       "coba": true
     }
   ]
