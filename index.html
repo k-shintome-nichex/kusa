@@ -48,15 +48,19 @@
       <i class="swatch lv-6"></i>
       <span>3時間</span>
     </footer>
-  </div>
 
-  <aside id="panel" class="panel" hidden>
-    <div class="panel-head">
-      <h2 id="panel-date"></h2>
-      <button type="button" id="panel-close" aria-label="閉じる">×</button>
-    </div>
-    <div id="panel-body"></div>
-  </aside>
+    <aside id="panel" class="panel" aria-live="polite" hidden>
+      <div class="panel-head">
+        <h2 id="panel-date"></h2>
+        <div class="panel-actions">
+          <button type="button" id="panel-prev" class="panel-nav">← 前日</button>
+          <button type="button" id="panel-next" class="panel-nav">翌日 →</button>
+          <button type="button" id="panel-close" aria-label="閉じる">×</button>
+        </div>
+      </div>
+      <div id="panel-body"></div>
+    </aside>
+  </div>
 
   <script src="app.js"></script>
 </body>
