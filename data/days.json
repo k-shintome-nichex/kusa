@@ -55,6 +55,12 @@
       "minutes": 105,
       "work": "7:30-8:30 / 昼スタバ45",
       "coba": true
+    },
+    {
+      "date": "2026-09-01",
+      "minutes": 90,
+      "work": "家30 / coba 1h",
+      "coba": true
     }
   ]
 }
