@@ -61,6 +61,12 @@
       "minutes": 150,
       "work": "家30 / coba 1h / 夜1h",
       "coba": true
+    },
+    {
+      "date": "2026-09-02",
+      "minutes": 75,
+      "work": "朝1h / 昼15",
+      "coba": true
     }
   ]
 }
