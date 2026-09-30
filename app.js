@@ -136,6 +136,13 @@ function formatSleep(minutes) {
   return hours + "時間" + rest + "分";
 }
 
+function formatSleepWindow(rec) {
+  const times = [];
+  if (rec && rec.lightsOut) times.push("消灯 " + rec.lightsOut);
+  if (rec && rec.wake) times.push("起床 " + rec.wake);
+  return times.length ? times.join(" · ") : "時刻の記録なし";
+}
+
 function formatMorningDate(ymd) {
   const p = parts(ymd);
   return p.m + "月" + p.d + "日 " + WEEKDAYS[mon0(ymd)] + "曜";
@@ -338,7 +345,7 @@ function renderMorningSummary(records) {
     '<article><span>睡眠</span><strong>' +
     escapeHtml(formatSleep(sleep)) +
     "</strong><small>" +
-    escapeHtml((latest.lightsOut || "—") + " → " + (latest.wake || "—")) +
+    escapeHtml(formatSleepWindow(latest)) +
     "</small></article>" +
     '<article><span>身体</span><strong>' +
     (body === null ? "—" : body + " / 5") +
@@ -379,7 +386,7 @@ function renderMorningList(records) {
         '<div class="morning-metric"><span>睡眠</span><strong>' +
         escapeHtml(formatSleep(sleep)) +
         "</strong><small>" +
-        escapeHtml((rec.lightsOut || "—") + " → " + (rec.wake || "—")) +
+        escapeHtml(formatSleepWindow(rec)) +
         "</small></div>" +
         '<div class="morning-metric"><span>身体</span><strong>' +
         (body === null ? "—" : body) +

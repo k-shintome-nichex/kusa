@@ -1,4 +1,11 @@
 {
   "timezone": "Asia/Tokyo",
-  "mornings": []
+  "mornings": [
+    {
+      "date": "2026-10-01",
+      "sleepMinutes": 360,
+      "body": 3,
+      "mental": 2
+    }
+  ]
 }
