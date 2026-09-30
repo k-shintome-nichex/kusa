@@ -9,57 +9,125 @@
 <body>
   <div class="page">
     <header class="top">
-      <div>
-        <h1>草</h1>
-      </div>
+      <h1>草</h1>
+      <nav class="view-tabs" aria-label="表示を切り替える">
+        <button type="button" class="view-tab is-active" data-view="grass" aria-selected="true">
+          NICHEX
+        </button>
+        <button type="button" class="view-tab" data-view="morning" aria-selected="false">
+          毎朝の記録
+        </button>
+      </nav>
     </header>
 
-    <section class="block">
-      <div class="block-head">
-        <h2>今年</h2>
-        <span class="meta" id="year-meta">2026</span>
-      </div>
-      <div id="year-grass" class="year-wrap"></div>
-    </section>
+    <main>
+      <div id="grass-view" class="site-view">
+        <section class="block">
+          <div class="block-head">
+            <h2>今年</h2>
+            <span class="meta" id="year-meta">2026</span>
+          </div>
+          <div id="year-grass" class="year-wrap"></div>
+        </section>
 
-    <section class="block">
-      <div class="block-head">
-        <h2>今週</h2>
-        <span class="meta" id="week-meta"></span>
-      </div>
-      <div id="week-strip" class="week-strip"></div>
-    </section>
+        <section class="block">
+          <div class="block-head">
+            <h2>今週</h2>
+            <span class="meta" id="week-meta"></span>
+          </div>
+          <div id="week-strip" class="week-strip"></div>
+        </section>
 
-    <section class="block">
-      <div class="block-head">
-        <h2>今月</h2>
-        <span class="meta" id="month-meta"></span>
-      </div>
-      <div id="month-cal" class="month-cal"></div>
-    </section>
+        <section class="block">
+          <div class="block-head">
+            <h2>今月</h2>
+            <span class="meta" id="month-meta"></span>
+          </div>
+          <div id="month-cal" class="month-cal"></div>
+        </section>
 
-    <footer class="legend" aria-label="濃さ">
-      <span>1分</span>
-      <i class="swatch lv-1"></i>
-      <i class="swatch lv-2"></i>
-      <i class="swatch lv-3"></i>
-      <i class="swatch lv-4"></i>
-      <i class="swatch lv-5"></i>
-      <i class="swatch lv-6"></i>
-      <span>3時間</span>
-    </footer>
+        <footer class="legend" aria-label="濃さ">
+          <span>1分</span>
+          <i class="swatch lv-1"></i>
+          <i class="swatch lv-2"></i>
+          <i class="swatch lv-3"></i>
+          <i class="swatch lv-4"></i>
+          <i class="swatch lv-5"></i>
+          <i class="swatch lv-6"></i>
+          <span>3時間</span>
+        </footer>
 
-    <aside id="panel" class="panel" aria-live="polite" hidden>
-      <div class="panel-head">
-        <h2 id="panel-date"></h2>
-        <div class="panel-actions">
-          <button type="button" id="panel-prev" class="panel-nav">← 前日</button>
-          <button type="button" id="panel-next" class="panel-nav">翌日 →</button>
-          <button type="button" id="panel-close" aria-label="閉じる">×</button>
-        </div>
+        <aside id="panel" class="panel" aria-live="polite" hidden>
+          <div class="panel-head">
+            <h2 id="panel-date"></h2>
+            <div class="panel-actions">
+              <button type="button" id="panel-prev" class="panel-nav">← 前日</button>
+              <button type="button" id="panel-next" class="panel-nav">翌日 →</button>
+              <button type="button" id="panel-close" aria-label="閉じる">×</button>
+            </div>
+          </div>
+          <div id="panel-body"></div>
+        </aside>
       </div>
-      <div id="panel-body"></div>
-    </aside>
+
+      <div id="morning-view" class="site-view morning-view" hidden>
+        <section class="morning-heading">
+          <div>
+            <p class="eyebrow">MORNING CHECK-IN</p>
+            <h2>毎朝の記録</h2>
+          </div>
+          <span id="morning-count" class="meta"></span>
+        </section>
+
+        <section id="morning-summary" class="morning-summary" aria-label="最新の記録"></section>
+
+        <section class="chart-grid" aria-label="朝の記録の推移">
+          <article class="chart-card chart-card-wide">
+            <div class="chart-head">
+              <div>
+                <h3>睡眠時間</h3>
+                <p>消灯から起床まで</p>
+              </div>
+              <strong id="sleep-latest" class="chart-latest">—</strong>
+            </div>
+            <div id="sleep-chart" class="chart" aria-live="polite"></div>
+          </article>
+
+          <article class="chart-card">
+            <div class="chart-head">
+              <div>
+                <h3>身体の疲れ</h3>
+                <p>1 すっきり · 5 とても疲れた</p>
+              </div>
+              <strong id="body-latest" class="chart-latest">—</strong>
+            </div>
+            <div id="body-chart" class="chart" aria-live="polite"></div>
+          </article>
+
+          <article class="chart-card">
+            <div class="chart-head">
+              <div>
+                <h3>心の疲れ</h3>
+                <p>1 すっきり · 5 とても疲れた</p>
+              </div>
+              <strong id="mental-latest" class="chart-latest">—</strong>
+            </div>
+            <div id="mental-chart" class="chart" aria-live="polite"></div>
+          </article>
+        </section>
+
+        <section class="morning-recent">
+          <div class="block-head">
+            <h2>最近の記録</h2>
+            <span class="meta">新しい順</span>
+          </div>
+          <div id="morning-list" class="morning-list"></div>
+          <p class="data-note">
+            記録の追加・修正は <code>data/mornings.json</code> を更新します。
+          </p>
+        </section>
+      </div>
+    </main>
   </div>
 
   <script src="app.js"></script>
