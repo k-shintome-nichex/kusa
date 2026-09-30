@@ -17,6 +17,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 html, body {
   margin: 0;
@@ -36,7 +37,7 @@ body { min-height: 100vh; }
 
 .top {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
 }
@@ -46,6 +47,32 @@ h1 {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+.view-tabs {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--elev);
+}
+
+.view-tab {
+  border: 0;
+  border-radius: 4px;
+  padding: 5px 10px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.view-tab:hover { color: var(--text); }
+
+.view-tab.is-active {
+  background: var(--line);
+  color: var(--text);
 }
 
 .block { margin-top: 28px; }
@@ -314,6 +341,229 @@ button.cell {
 .panel .ok { color: var(--l4); }
 .panel .ng { color: var(--muted); }
 
+.morning-view {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.morning-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.morning-heading h2 {
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  color: #58a6ff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.morning-summary {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.morning-summary article {
+  min-width: 0;
+  min-height: 92px;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--elev);
+}
+
+.morning-summary article > span,
+.morning-summary article > small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.morning-summary article > strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.morning-summary article > small { margin-top: 2px; }
+
+.morning-summary .summary-date {
+  background: #102a43;
+  border-color: #1f4b70;
+}
+
+.morning-summary .summary-date strong {
+  white-space: normal;
+}
+
+.morning-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 16px;
+  border: 1px dashed var(--line);
+  border-radius: 7px;
+  color: var(--muted);
+}
+
+.morning-empty strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chart-card {
+  min-width: 0;
+  padding: 15px 15px 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--elev);
+}
+
+.chart-card-wide { grid-column: 1 / -1; }
+
+.chart-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chart-head h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.chart-head p {
+  margin: 1px 0 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.chart-latest {
+  flex: 0 0 auto;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.chart {
+  min-height: 165px;
+  margin-top: 5px;
+}
+
+.chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chart-grid-line {
+  stroke: var(--line);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.chart-axis {
+  fill: var(--muted);
+  font-size: 11px;
+}
+
+.chart-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.chart-dot {
+  stroke: var(--elev);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.chart-empty {
+  display: grid;
+  min-height: 155px;
+  margin: 0;
+  place-items: center;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.morning-recent { margin-top: 24px; }
+
+.morning-list {
+  border-top: 1px solid var(--line);
+}
+
+.morning-row {
+  display: grid;
+  grid-template-columns: minmax(130px, 1.2fr) repeat(3, minmax(90px, 1fr));
+  align-items: center;
+  gap: 14px;
+  min-height: 66px;
+  border-bottom: 1px solid var(--line);
+}
+
+.morning-row time {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.morning-metric > span,
+.morning-metric > small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.morning-metric > span { display: block; }
+
+.morning-metric > strong {
+  margin-right: 3px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.list-empty {
+  margin: 0;
+  padding: 20px 0;
+  color: var(--muted);
+}
+
+.data-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.data-note code {
+  color: var(--text);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
 @media (max-width: 720px) {
   :root {
     --cell: 9px;
@@ -323,6 +573,9 @@ button.cell {
   html,
   body {
     width: 100%;
+  }
+
+  body[data-view="grass"] {
     height: 100%;
     overflow: hidden;
   }
@@ -345,6 +598,18 @@ button.cell {
     overflow: hidden;
   }
 
+  body[data-view="morning"] {
+    height: auto;
+    overflow: auto;
+  }
+
+  body[data-view="morning"] .page {
+    height: auto;
+    min-height: 100svh;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
   .top,
   .block,
   .legend {
@@ -359,6 +624,11 @@ button.cell {
   h1 {
     font-size: 18px;
     line-height: 1.2;
+  }
+
+  .view-tab {
+    padding: 4px 8px;
+    font-size: 10px;
   }
 
   .block {
@@ -500,5 +770,75 @@ button.cell {
     gap: 6px;
     padding: 5px 0;
     font-size: 11px;
+  }
+
+  .morning-heading {
+    margin-top: 22px;
+  }
+
+  .morning-heading h2 {
+    font-size: 21px;
+  }
+
+  .morning-summary {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 14px;
+  }
+
+  .morning-summary .summary-date {
+    grid-column: 1 / -1;
+    min-height: auto;
+  }
+
+  .morning-summary article {
+    min-height: 82px;
+    padding: 10px;
+  }
+
+  .morning-summary article > strong {
+    margin-top: 7px;
+    font-size: 14px;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .chart-card,
+  .chart-card-wide {
+    grid-column: auto;
+  }
+
+  .chart-card {
+    padding: 12px 10px 5px;
+  }
+
+  .chart {
+    min-height: 120px;
+  }
+
+  .chart-empty {
+    min-height: 112px;
+  }
+
+  .morning-recent {
+    margin-top: 18px;
+  }
+
+  .morning-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .morning-row time {
+    grid-column: 1 / -1;
+  }
+
+  .morning-metric > strong {
+    font-size: 12px;
   }
 }
