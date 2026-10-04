@@ -91,6 +91,18 @@
       "minutes": 120,
       "work": "中之島 / コピー設定 / 今後のスケール構想 / クラウド開発",
       "coba": true
+    },
+    {
+      "date": "2026-10-03",
+      "minutes": 60,
+      "work": "開発 / 資料作成",
+      "coba": false
+    },
+    {
+      "date": "2026-10-04",
+      "minutes": 120,
+      "work": "開発 / 資料作成",
+      "coba": false
     }
   ]
 }
