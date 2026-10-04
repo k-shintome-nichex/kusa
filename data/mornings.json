@@ -18,6 +18,18 @@
       "sleepMinutes": 330,
       "body": 3,
       "mental": 2
+    },
+    {
+      "date": "2026-10-04",
+      "sleepMinutes": 420,
+      "body": 2,
+      "mental": 2
+    },
+    {
+      "date": "2026-10-05",
+      "sleepMinutes": 420,
+      "body": 2,
+      "mental": 1
     }
   ]
 }
