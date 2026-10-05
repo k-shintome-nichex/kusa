@@ -103,6 +103,12 @@
       "minutes": 120,
       "work": "開発 / 資料作成",
       "coba": false
+    },
+    {
+      "date": "2026-10-05",
+      "minutes": 60,
+      "work": "",
+      "coba": false
     }
   ]
 }
