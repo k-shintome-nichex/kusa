@@ -109,6 +109,12 @@
       "minutes": 60,
       "work": "",
       "coba": false
+    },
+    {
+      "date": "2026-10-08",
+      "minutes": 120,
+      "work": "明日提供分の開発 / 資料作り",
+      "coba": false
     }
   ]
 }
