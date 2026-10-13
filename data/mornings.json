@@ -44,6 +44,12 @@
       "mental": 2,
       "lightsOut": "23:00",
       "wake": "06:30"
+    },
+    {
+      "date": "2026-10-14",
+      "sleepMinutes": 390,
+      "body": 3,
+      "mental": 2
     }
   ]
 }
