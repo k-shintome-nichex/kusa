@@ -127,6 +127,12 @@
       "minutes": 195,
       "work": "6:30中之島入り 2h15 / 昼休みなど1h",
       "coba": true
+    },
+    {
+      "date": "2026-10-17",
+      "minutes": 90,
+      "work": "",
+      "coba": false
     }
   ]
 }
