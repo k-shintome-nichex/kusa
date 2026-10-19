@@ -68,6 +68,12 @@
       "sleepMinutes": 540,
       "body": 2,
       "mental": 2
+    },
+    {
+      "date": "2026-10-19",
+      "sleepMinutes": 420,
+      "body": 1,
+      "mental": 1
     }
   ]
 }
