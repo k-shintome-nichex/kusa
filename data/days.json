@@ -133,6 +133,12 @@
       "minutes": 90,
       "work": "顧客のシステム改修",
       "coba": false
+    },
+    {
+      "date": "2026-10-19",
+      "minutes": 90,
+      "work": "HP差し替え(未完) / 毎日のタスク移行",
+      "coba": false
     }
   ]
 }
